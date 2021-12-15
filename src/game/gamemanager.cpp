@@ -146,7 +146,7 @@ void GameManager::setUpNewGame()
 void GameManager::continueLastGame()
 {
 	//get last save
-	QString folder = QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) + "/My Games/Ingnomia/save/";
+	QString folder = GAME_DATA_FOLDER + "/save/";
 
 	QDir dir( folder );
 	dir.setFilter( QDir::Dirs | QDir::NoDotAndDotDot );
@@ -155,7 +155,7 @@ void GameManager::continueLastGame()
 	{
 		auto kingdomDir = dir.entryList().first();
 
-		folder = QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) + "/My Games/Ingnomia/save/" + kingdomDir + "/";
+		folder = GAME_DATA_FOLDER + "/save/" + kingdomDir + "/";
 		QDir dir2( folder );
 		dir2.setFilter( QDir::Dirs | QDir::NoDotAndDotDot );
 		dir2.setSorting( QDir::Time );

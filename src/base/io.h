@@ -19,6 +19,13 @@
 
 #include <QObject>
 
+#ifdef _WIN32
+const QString GAME_DATA_FOLDER = QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) + "/My Games/Ingnomia";
+#else
+// corresponds to ~/.local/share/<APPNAME> on Linux
+const QString GAME_DATA_FOLDER = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation ) + "/Ingnomia";
+#endif
+
 class Game;
 
 class IO : public QObject

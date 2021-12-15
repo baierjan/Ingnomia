@@ -579,6 +579,7 @@ bool Selection::testTileForJobSelection( const Position& pos )
 				case SEL_PASTURE:
 					if ( tile->flags & TileFlag::TF_PASTURE )
 						return false;
+					break;
 				case SEL_STAIRS:
 					if ( (bool)( tile->wallType & WallType::WT_STAIR ) )
 						return false;

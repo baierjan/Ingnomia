@@ -460,6 +460,7 @@ void AggregatorTileInfo::onSetAlarm( unsigned int designationID, bool value )
 		case 1:
 			//cancel alarm job;
 			g->rm()->cancelAlarmJob( designationID );
+			break;
 		case 2:
 			GameState::alarmRoomID = 0;
 			GameState::alarm       = 0;

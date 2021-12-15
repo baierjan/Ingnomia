@@ -30,9 +30,9 @@ BT_RESULT BT_NodeSequence::tick()
 {
 	m_status = BT_RESULT::RUNNING;
 
-	for ( int index = 0; index < m_children.size(); ++index )
+	for ( auto child : m_children )
 	{
-		BT_RESULT child_status = m_children[index]->tick();
+		BT_RESULT child_status = child->tick();
 
 		if ( child_status == BT_RESULT::RUNNING )
 		{

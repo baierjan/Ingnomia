@@ -77,8 +77,7 @@ void RegionMap::initRegions()
 	m_regions.emplace_back( 0 );
 	m_regionMap.clear();
 	m_regionMap.resize( m_world->world().size() );
-	for ( auto i = 0; i < m_regionMap.size(); ++i )
-		m_regionMap[i] = 0;
+	std::for_each( m_regionMap.begin(), m_regionMap.end(), [](auto &n){ n = 0; } );
 
 	QElapsedTimer timer;
 	timer.start();

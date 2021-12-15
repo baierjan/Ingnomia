@@ -181,6 +181,8 @@ void AggregatorInventory::onRequestBuildItems( BuildSelection buildSelection, QS
 		QString prefix = "$ConstructionName_";
 		switch( buildSelection )
 		{
+			case BuildSelection::None:
+				break;
 			case BuildSelection::Wall:
 			case BuildSelection::Floor:
 			case BuildSelection::Stairs:

@@ -133,12 +133,16 @@ void NeighborManager::addRandomKingdom( KingdomType type )
 	nk.attitude = 0;
 	switch ( type )
 	{
+		case KingdomType::NONE:
+			break;
 		case KingdomType::GNOME:
 			nk.attitude = rand() % 100;
 			break;
 		case KingdomType::GOBLIN:
 			nk.attitude = -( rand() % 60 + 40 );
 			nk.nextRaid = GameState::tick + 60 * Global::util->ticksPerDayRandomized( 10 );
+			break;
+		case KingdomType::OTHER:
 			break;
 	}
 
@@ -306,6 +310,8 @@ void NeighborManager::emissary( Mission* mission )
 					g->m_eventManager->addTraderEvent( k );
 					break;
 				case MissionAction::INVITE_AMBASSADOR:
+					break;
+				case MissionAction::NONE:
 					break;
 			}
 			mission->result.insert( "Success", true );

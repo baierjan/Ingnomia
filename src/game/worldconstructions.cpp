@@ -1165,6 +1165,7 @@ bool World::deconstruct2( QVariantMap constr, Position decPos, bool isFloor, Pos
 				break;
 			case CI_HYDRAULICS:
 				deconstructPipe( constr, decPos, workPos );
+				break;
 		}
 		switch ( m_constrItemSID2ENUM.value( group ) )
 		{

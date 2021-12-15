@@ -103,7 +103,7 @@ enum DBSkillIds : int
 
 enum CreaturePart : unsigned char
 {
-	KCP_NONE,
+	CP_NONE,
 	CP_HEAD,
 	CP_TORSO,
 	CP_LEFT_ARM,

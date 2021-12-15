@@ -275,6 +275,8 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 
 		switch ( part )
 		{
+			case CP_NONE:
+				break;
 			case CP_HEAD:
 				break;
 			case CP_TORSO:
@@ -291,9 +293,34 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 				break;
 			case CP_RIGHT_LEG:
 				break;
+			case CP_LEFT_FRONT_LEG:
+				break;
+			case CP_RIGHT_FRONT_LEG:
+				break;
 			case CP_LEFT_FOOT:
 				break;
 			case CP_RIGHT_FOOT:
+				break;
+			case CP_LEFT_FRONT_FOOT:
+				break;
+			case CP_RIGHT_FRONT_FOOT:
+				break;
+
+			case CP_LEFT_WING:
+				break;
+			case CP_RIGHT_WING:
+				break;
+			case CP_BRAIN:
+				break;
+			case CP_LEFT_EYE:
+				break;
+			case CP_RIGHT_EYE:
+				break;
+			case CP_HEART:
+				break;
+			case CP_LEFT_LUNG:
+				break;
+			case CP_RIGHT_LUNG:
 				break;
 
 			case CP_HAIR:
@@ -334,6 +361,8 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 					pm.insert( "Material", m_equipment.chest.material );
 				}
 				break;
+			case CP_ARMOR_ARM:
+				break;
 			case CP_ARMOR_LEFT_ARM:
 				if ( m_equipment.arm.itemID )
 				{
@@ -352,6 +381,8 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 					pm.insert( "Material", m_equipment.arm.material );
 				}
 				break;
+			case CP_ARMOR_HAND:
+				break;
 			case CP_ARMOR_LEFT_HAND:
 				if ( m_equipment.hand.itemID )
 				{
@@ -369,6 +400,10 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 					bs += "RightHandArmor";
 					pm.insert( "Material", m_equipment.hand.material );
 				}
+				break;
+			case CP_ARMOR_LEG:
+				break;
+			case CP_ARMOR_FOOT:
 				break;
 			case CP_ARMOR_LEFT_FOOT:
 				if ( m_equipment.foot.itemID )

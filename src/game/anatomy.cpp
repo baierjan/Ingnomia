@@ -138,7 +138,7 @@ void Anatomy::deserialize( QVariantMap in )
 void Anatomy::damage( Equipment* eq, DamageType dt, AnatomyHeight da, AnatomySide ds, int strength )
 {
 	// get part that is hit
-	CreaturePart hitPart = KCP_NONE;
+	CreaturePart hitPart = CP_NONE;
 
 	bool left   = (bool)( ds & AS_LEFT );
 	bool right  = (bool)( ds & AS_RIGHT );

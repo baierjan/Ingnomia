@@ -291,6 +291,8 @@ BT_RESULT Monster::actionMove( bool halt )
 		case PathFinderResult::Running:
 		case PathFinderResult::FoundPath:
 			return BT_RESULT::RUNNING;
+		case PathFinderResult::Pending:
+			break;
 	}
 	return BT_RESULT::RUNNING;
 }

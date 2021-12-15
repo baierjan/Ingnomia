@@ -962,6 +962,12 @@ bool IO::loadGnomes( QJsonDocument& jd )
 			case CreatureType::AUTOMATON:
 				g->gm()->addAutomaton( em );
 				break;
+			case CreatureType::ANIMAL:
+				break;
+			case CreatureType::MONSTER:
+				break;
+			case CreatureType::UNDEFINED:
+				break;
 		}
 	}
 	return true;

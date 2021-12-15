@@ -195,6 +195,10 @@ void GnomeManager::onTick( quint64 tickNumber, bool seasonChanged, bool dayChang
 				break;
 			case CreatureTickResult::LEFTMAP:
 				break;
+			case CreatureTickResult::NOFUEL:
+				break;
+			case CreatureTickResult::NOCORE:
+				break;
 		}
 
 		if ( timer.elapsed() > 5 )
@@ -218,8 +222,12 @@ void GnomeManager::onTick( quint64 tickNumber, bool seasonChanged, bool dayChang
 		switch ( tr )
 		{
 			case CreatureTickResult::NOFUEL:
+				// not yet implemented
 				break;
 			case CreatureTickResult::NOCORE:
+				// not yet implemented
+				break;
+			default:
 				break;
 		}
 	}

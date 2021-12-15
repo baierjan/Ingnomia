@@ -215,9 +215,16 @@ QHash<unsigned int, unsigned int> AggregatorRenderer::collectCreatures()
 					creatures[posID] = spriteID;
 				}
 			}
+			case CreatureType::AUTOMATON:
+			case CreatureType::GNOME:
+			case CreatureType::GNOME_TRADER:
+				// already handled above
+				break;
+			case CreatureType::UNDEFINED:
+				break;
 		}
 	}
-	
+
 	return creatures;
 }
 

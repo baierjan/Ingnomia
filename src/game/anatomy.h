@@ -29,7 +29,7 @@ struct AnatomyPart
 {
 	CreaturePart id;
 
-	CreaturePart parent = (CreaturePart)KCP_NONE;
+	CreaturePart parent = (CreaturePart)CP_NONE;
 	QList<CreaturePart> children;
 
 	bool isInside = false;

@@ -258,6 +258,8 @@ BT_RESULT Gnome::actionMove( bool halt )
 		case PathFinderResult::Running:
 		case PathFinderResult::FoundPath:
 			return BT_RESULT::RUNNING;
+		case PathFinderResult::Pending:
+			break;
 	}
 
 	return BT_RESULT::RUNNING;
@@ -2448,6 +2450,8 @@ BT_RESULT Gnome::actionDoMission( bool halt )
 							}
 						}
 						break;
+						case MissionType::NOMISSION:
+							break;
 					}
 
 					mission->nextCheckTick = GameState::tick + Global::util->ticksPerDay;
@@ -2473,6 +2477,8 @@ BT_RESULT Gnome::actionDoMission( bool halt )
 						case MissionType::SABOTAGE:
 							g->nm()->sabotage( mission );
 							break;
+						case MissionType::NOMISSION:
+							break;
 					}
 					mission->nextCheckTick = GameState::tick + mission->distance * Global::util->ticksPerMinute * Global::util->minutesPerHour;
 					m_nextCheckTick        = mission->nextCheckTick;
@@ -2497,9 +2503,17 @@ BT_RESULT Gnome::actionDoMission( bool halt )
 							break;
 						case MissionType::SABOTAGE:
 							break;
+						case MissionType::NOMISSION:
+							break;
 					}
 
 					return BT_RESULT::SUCCESS;
+					break;
+				case MissionStep::LEAVE_MAP:
+					break;
+				case MissionStep::RETURNED:
+					break;
+				case MissionStep::NONE:
 					break;
 			}
 		}

@@ -488,6 +488,7 @@ void Creature::randomMove()
 
 				switch ( m_type )
 				{
+					case CreatureType::AUTOMATON:
 					case CreatureType::GNOME:
 					case CreatureType::GNOME_TRADER:
 						if ( g->cm()->monstersAtPosition( newPos ).size() )
@@ -515,6 +516,8 @@ void Creature::randomMove()
 						{
 							return;
 						}
+						break;
+					case CreatureType::UNDEFINED:
 						break;
 				}
 				if ( newFacing != -1 )
@@ -557,6 +560,7 @@ bool Creature::moveOnPath()
 			{
 				switch ( m_type )
 				{
+					case CreatureType::AUTOMATON:
 					case CreatureType::GNOME:
 					case CreatureType::GNOME_TRADER:
 						if ( door->blockGnomes )
@@ -585,11 +589,14 @@ bool Creature::moveOnPath()
 							return false;
 						}
 						break;
+					case CreatureType::UNDEFINED:
+						break;
 				}
 			}
 
 			switch ( m_type )
 			{
+				case CreatureType::AUTOMATON:
 				case CreatureType::GNOME:
 				case CreatureType::GNOME_TRADER:
 					if ( g->cm()->monstersAtPosition( p ).size() )
@@ -610,6 +617,8 @@ bool Creature::moveOnPath()
 							qDebug() << "moveOnPath monster can't move onto a tile occupied by gnomes " << p.toString();
 						return false;
 					}
+					break;
+				case CreatureType::UNDEFINED:
 					break;
 			}
 			// move on path

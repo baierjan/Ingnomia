@@ -76,6 +76,8 @@ void FluidManager::loadPipes( QVariantList data )
 			case PT_OUTPUT:
 				m_outputs.append( np.pos );
 				break;
+			case PT_NONE:
+				break;
 		}
 		/*
 		if( md.jobID )

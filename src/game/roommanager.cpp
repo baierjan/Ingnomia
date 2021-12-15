@@ -92,6 +92,8 @@ void RoomManager::addRoom( Position firstClick, QList<QPair<Position, bool>> fie
 			case RoomType::Dining:
 				sp->setName( "Dining Room" );
 				break;
+			case RoomType::NotSet:
+				break;
 		}
 
 		m_rooms.insert( sp->id(), sp );

@@ -102,6 +102,10 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 		m_title = "Explore"; 
 		switch( mission.step )
 		{
+			case MissionStep::NONE:
+				break;
+			case MissionStep::ACTION:
+				break;
 			case MissionStep::LEAVE_MAP:
 				m_currentAction = "Leaving the area.";
 				qTime = "I haven't left yet.";
@@ -134,6 +138,10 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 		m_title = "Spy"; 
 		switch( mission.step )
 		{
+			case MissionStep::NONE:
+				break;
+			case MissionStep::ACTION:
+				break;
 			case MissionStep::LEAVE_MAP:
 				m_currentAction = "Leaving the area.";
 				qTime = "I haven't left yet.";
@@ -166,6 +174,10 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 		m_title = "Emissary";
 		switch( mission.step )
 		{
+			case MissionStep::NONE:
+				break;
+			case MissionStep::ACTION:
+				break;
 			case MissionStep::LEAVE_MAP:
 				m_currentAction = "Leaving the area.";
 				qTime = "I haven't left yet.";
@@ -198,6 +210,10 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 		m_title = "Raid";
 		switch( mission.step )
 		{
+			case MissionStep::NONE:
+				break;
+			case MissionStep::ACTION:
+				break;
 			case MissionStep::LEAVE_MAP:
 				m_currentAction = "Leaving the area.";
 				qTime = "We haven't left yet.";
@@ -230,6 +246,10 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 		m_title = "Sabotage"; 
 		switch( mission.step )
 		{
+			case MissionStep::NONE:
+				break;
+			case MissionStep::ACTION:
+				break;
 			case MissionStep::LEAVE_MAP:
 				m_currentAction = "Leaving the area.";
 				qTime = "We haven't left yet.";
@@ -257,6 +277,8 @@ MissionInfo::MissionInfo( const Mission& mission ) :
 				break;
 			}
 		}
+		break;
+	case MissionType::NOMISSION:
 		break;
 	}
 

@@ -423,6 +423,8 @@ void Game::processPlants()
 				break;
 			case OnTickReturn::UPDATE:
 				break;
+			case OnTickReturn::NOOP:
+				break;
 		}
 	}
 	for ( auto p : toRemove )

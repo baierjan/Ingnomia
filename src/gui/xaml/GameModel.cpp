@@ -932,6 +932,8 @@ void GameModel::OnCmdButtonCommand( BaseComponent* param )
 
 	switch ( m_buildSelection )
 	{
+		case BuildSelection::None:
+			break;
 		case BuildSelection::Wall:
 		case BuildSelection::Floor:
 		case BuildSelection::Stairs:

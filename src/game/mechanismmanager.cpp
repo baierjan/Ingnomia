@@ -396,6 +396,8 @@ void MechanismManager::installItem( unsigned int itemID, Position pos, int rot )
 
 	switch ( md.type )
 	{
+		case MT_NONE:
+			break;
 		case MT_AXLE:
 		{
 			if ( rot == 0 || rot == 2 )
@@ -523,12 +525,29 @@ void MechanismManager::uninstallItem( unsigned int itemID )
 
 		switch ( md.type )
 		{
+			case MT_NONE:
+				break;
 			case MT_WALL:
 			{
 				g->m_world->setWalkable( md.pos, true );
 				Tile& tile    = g->m_world->getTile( md.pos );
 				tile.wallType = WT_NOWALL;
 			}
+			break;
+			case MT_AXLE:
+				break;
+			case MT_VERTICALAXLE:
+				break;
+			case MT_GEARBOX:
+				break;
+			case MT_LEVER:
+				break;
+			case MT_ENGINE:
+				break;
+			case MT_PUMP:
+				break;
+			case MT_PRESSUREPLATE:
+				break;
 		}
 
 		m_needNetworkUpdate = true;
@@ -608,9 +627,11 @@ void MechanismManager::setConnectsTo( MechanismData& md )
 {
 	switch( md.type )
 	{
+		case MT_NONE:
+			break;
 		case MT_LEVER:
 		case MT_PRESSUREPLATE:
-		md.connectsTo.clear();
+			md.connectsTo.clear();
 			if ( md.inverted )
 			{
 				if ( !md.active )
@@ -631,6 +652,18 @@ void MechanismManager::setConnectsTo( MechanismData& md )
 					md.connectsTo.append( md.pos.southOf() );
 				}
 			}
+			break;
+		case MT_AXLE:
+			break;
+		case MT_VERTICALAXLE:
+			break;
+		case MT_GEARBOX:
+			break;
+		case MT_ENGINE:
+			break;
+		case MT_PUMP:
+			break;
+		case MT_WALL:
 			break;
 	}
 }

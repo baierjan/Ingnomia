@@ -489,6 +489,8 @@ void AggregatorAgri::onSetHarvestOptions( AgriType type, unsigned int designatio
 				}
 			}
 			break;
+			case AgriType::Grove:
+				break;
 		}
 	}
 }

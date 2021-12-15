@@ -91,8 +91,8 @@ Mission::Mission( QVariantMap in )
 }
 
 EventManager::EventManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	m_string2type.insert( "EventTrader", (int)EventType::TRADER );
 	m_string2type.insert( "EventMigration", (int)EventType::MIGRATION );

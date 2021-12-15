@@ -26,8 +26,8 @@
 #include <QElapsedTimer>
 
 PathFinder::PathFinder( World* world, QObject* parent) :
-	m_world( world ),
-	QObject(parent)
+	QObject(parent),
+	m_world( world )
 {
 }
 

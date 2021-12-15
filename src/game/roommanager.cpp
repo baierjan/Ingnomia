@@ -29,8 +29,8 @@
 #include <QDebug>
 
 RoomManager::RoomManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	m_errorDoor.name = "Error Door";
 }

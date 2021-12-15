@@ -47,8 +47,8 @@ void NetworkPipe::deserialize( QVariantMap in )
 }
 
 FluidManager::FluidManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 

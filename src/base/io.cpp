@@ -61,8 +61,8 @@
 #include <unordered_set>
 
 IO::IO( Game* game, QObject* parent ) :
-	g( game ),
-	QObject( parent )
+	QObject( parent ),
+	g( game )
 {
 }
 

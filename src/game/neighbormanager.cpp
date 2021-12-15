@@ -26,8 +26,8 @@
 #include <QDebug>
 
 NeighborManager::NeighborManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	m_kingdoms.clear();
 

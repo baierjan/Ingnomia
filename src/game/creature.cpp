@@ -34,11 +34,11 @@
 #include <QDebug>
 
 Creature::Creature( const Position& pos, QString name, Gender gender, QString species, Game* game ) :
-	g( game ),
 	Object( pos ),
+	g( game ),
+	m_species( species ),
 	m_name( name ),
 	m_gender( gender ),
-	m_species( species ),
 	m_moveDelay( 250 ),
 	m_moveCooldown( m_moveDelay ),
 	m_moveSpeed( 30 ),
@@ -47,14 +47,37 @@ Creature::Creature( const Position& pos, QString name, Gender gender, QString sp
 }
 
 Creature::Creature( QVariantMap in, Game* game ) :
-	g( game ),
 	Object( in ),
-	m_attributes( in.value( "Attributes" ).toMap() ),
-	m_skills( in.value( "Skills" ).toMap() ),
-	//QMap<QString, unsigned int> m_spriteUIDs;
-	m_spriteUIDs( in.value( "spritUIDs" ).toMap() ),
+	g( game ),
+	//unsigned char m_type = CreatureType::UNDEFINED
+	m_type( (CreatureType)in.value( "Type" ).value<quint8>() ),
+	m_species( in.value( "Species" ).toString() ),
+	//QString m_name = "not_initialized";
+	m_name( in.value( "Name" ).toString() ),
+	//Gender m_gender = UNDEFINED;
+	m_gender( (Gender)in.value( "Gender" ).value<quint8>() ),
+	//bool m_immobile = false;
+	m_immobile( in.value( "Immobile" ).toBool() ),
+	m_ignoreNoPass( in.value( "IgnoreNoPass" ).toBool() ),
+	//bool m_isDead = false;
+	m_isDead( in.value( "IsDead" ).toBool() ),
+	//bool m_toDestroy = false;
+	m_toDestroy( in.value( "ToDestroy" ).toBool() ),
+	m_expires( in.value( "Expires" ).value<quint64>() ),
 	m_spriteDef( in.value( "SpriteDef" ).toList() ),
 	m_spriteDefBack( in.value( "SpriteDefBack" ).toList() ),
+	//QMap<QString, unsigned int> m_spriteUIDs;
+	m_spriteUIDs( in.value( "spritUIDs" ).toMap() ),
+	//bool m_renderParamsChanged = true;
+	m_renderParamsChanged( in.value( "rpc" ).toBool() ),
+	m_currentTargetPosition( Position( in.value( "CurrentTargetPos" ) ) ),
+	m_facingAfterMove( in.value( "FacingAfterMove" ).toUInt() ),
+	m_currentAttackTarget( in.value( "CurrentAttackTarget" ).toUInt() ),
+	m_goneOffMap( in.value( "GoneOffMap" ).toBool() ),
+	m_btBlackBoard( in.value( "BTBlackBoard" ).toMap() ),
+	m_attributes( in.value( "Attributes" ).toMap() ),
+	m_skills( in.value( "Skills" ).toMap() ),
+	m_roleID( in.value( "Role" ).toUInt() ),
 	//float m_moveDelay;
 	//m_moveDelay( in.value( "MoveDelay" ).toFloat() ),
 	m_moveDelay( 250 ),
@@ -67,40 +90,13 @@ Creature::Creature( QVariantMap in, Game* game ) :
 	m_followID( in.value( "FollowID" ).toUInt() ),
 	//Position m_followPosition;
 	m_followPosition( in.value( "FollowPosition" ) ),
-	//Gender m_gender = UNDEFINED;
-	m_gender( (Gender)in.value( "Gender" ).value<quint8>() ),
-	m_species( in.value( "Species" ).toString() ),
-	//QString m_name = "not_initialized";
-	m_name( in.value( "Name" ).toString() ),
-	//bool m_immobile = false;
-	m_immobile( in.value( "Immobile" ).toBool() ),
-	//bool m_renderParamsChanged = true;
-	m_renderParamsChanged( in.value( "rpc" ).toBool() ),
 	//QString m_currentAction = "idle";
 	m_currentAction( in.value( "CurrentAction" ).toString() ),
 	//int m_state = 0;
 	m_state( in.value( "State" ).toInt() ),
 	//quint64 m_stateChangeTick = 0;
 	m_stateChangeTick( in.value( "sct" ).value<quint64>() ),
-	//bool m_isDead = false;
-	m_isDead( in.value( "IsDead" ).toBool() ),
-	//bool m_toDestroy = false;
-	m_toDestroy( in.value( "ToDestroy" ).toBool() ),
-	//unsigned char m_type = CreatureType::UNDEFINED
-	m_type( (CreatureType)in.value( "Type" ).value<quint8>() ),
-	m_ignoreNoPass( in.value( "IgnoreNoPass" ).toBool() ),
 	m_lightIntensity( in.value( "LightIntensity" ).toInt() ),
-	m_roleID( in.value( "Role" ).toUInt() ),
-
-	m_currentTargetPosition( Position( in.value( "CurrentTargetPos" ) ) ),
-
-	m_facingAfterMove( in.value( "FacingAfterMove" ).toUInt() ),
-
-	m_expires( in.value( "Expires" ).value<quint64>() ),
-
-	m_currentAttackTarget( in.value( "CurrentAttackTarget" ).toUInt() ),
-
-	m_goneOffMap( in.value( "GoneOffMap" ).toBool() ),
 
 	//combat variables
 	m_lastOnTick( in.value( "LastonTick" ).value<quint64>() ),
@@ -124,9 +120,7 @@ Creature::Creature( QVariantMap in, Game* game ) :
 	m_mission( in.value( "Mission" ).toUInt() ),
 	m_nextCheckTick( in.value( "NextCheckTick" ).value<quint64>() ),
 
-	m_btName( in.value( "BTName" ).toString() ),
-
-	m_btBlackBoard( in.value( "BTBlackBoard" ).toMap() )
+	m_btName( in.value( "BTName" ).toString() )
 {
 	m_currentPath.clear();
 

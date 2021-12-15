@@ -315,11 +315,11 @@ void WsCraftJob::onButtonCmd( BaseComponent* param )
 #pragma region TradeItems
 
 WsTradeItem::WsTradeItem( QString name, QString itemSID, QString materialSID, unsigned char quality, int count ) :
-	m_name( name.toStdString().c_str() ),
 	m_itemSID( itemSID ),
 	m_materialSID( materialSID ),
 	m_quality( quality ),
 	m_count( count ),
+	m_name( name.toStdString().c_str() ),
 	m_countString( QString::number( count ).toStdString().c_str() )
 {
 }

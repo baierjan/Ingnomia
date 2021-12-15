@@ -40,9 +40,9 @@
 #include <QElapsedTimer>
 
 WorldGenerator::WorldGenerator( NewGameSettings* newGameSettings, Game* parent ) :
+	QObject(parent),
 	g( parent ),
-	ngs( newGameSettings ),
-	QObject(parent)
+	ngs( newGameSettings )
 {
 }
 

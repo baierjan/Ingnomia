@@ -47,10 +47,10 @@
 
 World::World( int dimX, int dimY, int dimZ, Game* game ) :
 	g( game ),
+	m_regionMap( this ),
 	m_dimX( dimX ),
 	m_dimY( dimY ),
-	m_dimZ( dimZ ),
-	m_regionMap( this )
+	m_dimZ( dimZ )
 {
 	m_constructionSID2ENUM.insert( "Wall", CID_WALL );
 	m_constructionSID2ENUM.insert( "FancyWall", CID_FANCYWALL );

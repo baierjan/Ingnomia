@@ -38,8 +38,8 @@
 #include <QStandardPaths>
 
 GnomeManager::GnomeManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	loadProfessions();
 }

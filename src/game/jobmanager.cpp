@@ -38,9 +38,9 @@
 #include <QVariantMap>
 
 JobManager::JobManager( Game* parent ) :
-	m_startIndex( 0 ),
+	QObject( parent ),
 	g( parent ),
-	QObject( parent )
+	m_startIndex( 0 )
 {
 	for ( auto job : DB::jobIds() )
 	{

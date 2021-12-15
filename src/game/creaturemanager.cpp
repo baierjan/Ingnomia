@@ -32,8 +32,8 @@
 #include <QElapsedTimer>
 
 CreatureManager::CreatureManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 

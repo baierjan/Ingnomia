@@ -54,8 +54,8 @@ Beehive::Beehive( QVariantMap& in )
 }
 
 FarmingManager::FarmingManager( Game* parent ) :
-	g( parent ),
-	QObject(parent)
+	QObject(parent),
+	g( parent )
 {
 }
 

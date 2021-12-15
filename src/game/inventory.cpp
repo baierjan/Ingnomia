@@ -37,8 +37,8 @@
 #include <QJsonValue>
 
 Inventory::Inventory( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	m_itemHistory = new ItemHistory( this );
 	init();

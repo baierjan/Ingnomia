@@ -67,11 +67,13 @@ Animal::Animal( QString species, Position& pos, Gender gender, bool adult, Game*
 Animal::Animal( QVariantMap in, Game* game ) :
 	Creature( in, game ),
 	//bool m_tame = false;
+	m_isMulti( in.value( "IsMulti" ).toBool() ),
 	m_tame( in.value( "Tame" ).toBool() ),
-	m_birthTick( in.value( "BirthTick" ).value<quint64>() ),
 	//unsigned int m_pastureID = 0;
 	m_pastureID( in.value( "PastureID" ).toUInt() ),
 	m_inJob( in.value( "InJob" ).toUInt() ),
+	m_toButcher( in.value( "ToButcher" ).toBool() ),
+	m_birthTick( in.value( "BirthTick" ).value<quint64>() ),
 	m_produceTick( in.value( "ProduceTick" ).value<quint64>() ),
 	m_lastSex( in.value( "LastSex" ).value<quint64>() ),
 	m_currentPrey( in.value( "CurrentPrey" ).toUInt() ),
@@ -79,9 +81,7 @@ Animal::Animal( QVariantMap in, Game* game ) :
 	m_producedAmount( in.value( "ProducedAmount" ).value<quint8>() ),
 	m_produce( in.value( "Produce" ).toString() ),
 	m_corpseToEat( in.value( "CorpseToEat" ).toUInt() ),
-	m_dye( in.value( "Dye" ).toString() ),
-	m_isMulti( in.value( "IsMulti" ).toBool() ),
-	m_toButcher( in.value( "ToButcher" ).toBool() )
+	m_dye( in.value( "Dye" ).toString() )
 {
 	initTaskMap();
 

@@ -28,8 +28,8 @@
 #include <QJsonDocument>
 
 SoundManager::SoundManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 

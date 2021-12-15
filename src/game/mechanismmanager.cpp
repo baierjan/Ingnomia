@@ -79,8 +79,8 @@ void MechanismData::deserialize( QVariantMap in )
 }
 
 MechanismManager::MechanismManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 	m_string2Type.insert( "None", MT_NONE );
 	m_string2Type.insert( "Axle", MT_AXLE );

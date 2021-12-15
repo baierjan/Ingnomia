@@ -38,12 +38,12 @@
 #include <QJsonValue>
 
 Selection::Selection( Game* game ) :
+	QObject( game ),
 	g( game ),
 	m_rotation( 0 ),
 	m_firstClicked( false ),
 	m_action( "" ),
-	m_debug( false ),
-	QObject( game )
+	m_debug( false )
 {
 	m_selectionSize.first  = 0;
 	m_selectionSize.second = 0;

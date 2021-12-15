@@ -181,8 +181,8 @@ Squad::Squad( QList<QString> tps, const QVariantMap& in ) :
 }
 
 MilitaryManager::MilitaryManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 MilitaryManager::~MilitaryManager()

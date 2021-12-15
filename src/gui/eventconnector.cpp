@@ -48,8 +48,8 @@
 #include <QDebug>
 
 EventConnector::EventConnector( GameManager* parent ) :
-	gm( parent ),
-	QObject( parent )
+	QObject( parent ),
+	gm( parent )
 {
 	m_tiAggregator           = new AggregatorTileInfo( this );
 	m_spAggregator           = new AggregatorStockpile( this );

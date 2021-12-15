@@ -24,8 +24,8 @@
 #include <QJsonDocument>
 
 WorkshopManager::WorkshopManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 

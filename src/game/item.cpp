@@ -136,12 +136,13 @@ Item::Item( QVariantMap in ) :
 }
 
 Item::Item( const Item& other ) :
-	m_itemUID( other.m_itemUID ),
+	Object(),
 	m_materialUID( other.m_materialUID ),
-	m_isInStockpile( other.m_isInStockpile ),
-	m_isInJob( other.m_isInJob ),
-	m_isInContainer( other.m_isInContainer ),
+	m_itemUID( other.m_itemUID ),
 	m_isConstructed( other.m_isConstructed ),
+	m_isInStockpile( other.m_isInStockpile ),
+	m_isInContainer( other.m_isInContainer ),
+	m_isInJob( other.m_isInJob ),
 	m_isHeldBy( other.m_isHeldBy ),
 	m_value( other.m_value ),
 	m_madeBy( other.m_madeBy ),

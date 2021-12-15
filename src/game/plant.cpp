@@ -43,8 +43,8 @@ Plant::Plant() :
 }
 
 Plant::Plant( Position& pos, QString ID, bool fullyGrown, Game* game ) :
-	g( game ),
 	Object( pos ),
+	g( game ),
 	m_plantID( ID )
 {
 	QVariantMap row = DB::selectRow( "Plants", ID );
@@ -98,8 +98,8 @@ Plant::Plant( Position& pos, QString ID, bool fullyGrown, Game* game ) :
 }
 
 Plant::Plant( QVariant values, Game* game ) :
-	g( game ),
-	Object( Position() )
+	Object( Position() ),
+	g( game )
 {
 	QVariantMap in = values.toMap();
 

@@ -27,8 +27,8 @@
 #include <QDebug>
 
 StockpileManager::StockpileManager( Game* parent ) :
-	g( parent ),
-	QObject( parent )
+	QObject( parent ),
+	g( parent )
 {
 }
 

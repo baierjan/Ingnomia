@@ -178,9 +178,9 @@ ProfItem* GnomeRow::GetProfession() const
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 GnomeScheduleEntry::GnomeScheduleEntry( unsigned int id, int hour, ScheduleActivity activity, PopulationProxy* proxy ) :
 	m_proxy( proxy ),
+	m_activity( activity ),
 	m_id( id ),
-	m_hour( hour ),
-	m_activity( activity )
+	m_hour( hour )
 {
 	switch ( activity )
 	{

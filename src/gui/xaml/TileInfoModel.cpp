@@ -316,6 +316,8 @@ void TileInfoModel::onUpdateTileInfo( const GuiTileInfo& tileInfo )
 		case TileFlag::TF_ROOM:
 			m_designationTitle = "Room";
 			break;
+		default:
+			break;
 	}
 
 

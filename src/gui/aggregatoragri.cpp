@@ -181,6 +181,8 @@ void AggregatorAgri::onOpen( TileFlag designation, unsigned int tileID )
 				}
 				break;
 			}
+			default:
+				break;
 		}
 	}
 	emit signalShowAgri( tileID );

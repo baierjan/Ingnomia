@@ -1022,6 +1022,8 @@ bool World::constructItem( QString itemSID, Position pos, int rotation, QList<un
 		case CI_FURNITURE:
 			g->rm()->addFurniture( itemID, pos );
 			break;
+		default:
+			break;
 	}
 	switch ( m_constrItemSID2ENUM.value( group ) )
 	{
@@ -1050,6 +1052,8 @@ bool World::constructItem( QString itemSID, Position pos, int rotation, QList<un
 			break;
 		case CI_FARMUTIL:
 			g->fm()->addUtil( pos, itemID );
+			break;
+		default:
 			break;
 	}
 
@@ -1166,6 +1170,8 @@ bool World::deconstruct2( QVariantMap constr, Position decPos, bool isFloor, Pos
 			case CI_HYDRAULICS:
 				deconstructPipe( constr, decPos, workPos );
 				break;
+			default:
+				break;
 		}
 		switch ( m_constrItemSID2ENUM.value( group ) )
 		{
@@ -1186,6 +1192,8 @@ bool World::deconstruct2( QVariantMap constr, Position decPos, bool isFloor, Pos
 				break;
 			case CI_FARMUTIL:
 				g->fm()->removeUtil( decPos );
+				break;
+			default:
 				break;
 		}
 

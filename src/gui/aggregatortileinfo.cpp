@@ -375,6 +375,8 @@ void AggregatorTileInfo::onUpdateTileInfo( unsigned int tileID )
 				}
 				break;
 			}
+			default:
+				break;
 		}
 
 		emit signalUpdateTileInfo( m_tileInfo );

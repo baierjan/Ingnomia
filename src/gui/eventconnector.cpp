@@ -202,6 +202,8 @@ void EventConnector::onManageCommand( unsigned int tileID )
 			break;
 			case TileFlag::TF_ROOM:
 				break;
+			default:
+				break;
 		}
 	}
 }

@@ -1243,6 +1243,8 @@ bool Gnome::checkUniformItem( QString slot, Uniform* uniform, bool& dropped )
 				wiMat    = m_equipment.back.material;
 			}
 			break;
+		default:
+			break;
 	}
 
 	if ( wornItem )

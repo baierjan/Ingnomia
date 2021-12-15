@@ -74,6 +74,8 @@ void CreatureManager::onTick( quint64 tickNumber, bool seasonChanged, bool dayCh
 				}
 				toDestroy.append( creature->id() );
 				break;
+			default:
+				break;
 		}
 
 		m_startIndex = i + 1;
@@ -163,6 +165,8 @@ unsigned int CreatureManager::addCreature( CreatureType ct, QString type, Positi
 		case CreatureType::MONSTER:
 			creature = cf.createMonster( type, level, pos, gender );
 			break;
+		default:
+			break;
 	}
 
 	if( creature )
@@ -202,6 +206,8 @@ unsigned int CreatureManager::addCreature( CreatureType ct, QVariantMap vals )
 			break;
 		case CreatureType::MONSTER:
 			creature = cf.createMonster( vals );
+			break;
+		default:
 			break;
 	}
 	if( creature )
@@ -300,6 +306,8 @@ void CreatureManager::removeCreature( unsigned int id )
 				}
 			}
 			break;
+			default:
+				break;
 		}
 
 		auto& perTypeList = m_creaturesPerType[creature->species()];

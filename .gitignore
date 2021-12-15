@@ -226,6 +226,7 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
+*.swp
 orleans.codegen.cs
 
 # Including strong name files can present a security risk
@@ -373,6 +374,7 @@ _deps
 *-prefix/
 
 build/
+install/
 /content/db/*.db
 
 # Visual studio code

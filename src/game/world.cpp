@@ -963,7 +963,7 @@ void World::processWaterFlow()
 			}
 
 			// Flow down if no back-pressure
-			if ( pressure[down] != invalidPressure && pressure[down] <= pressure[center] || pressure[down] < 10 )
+			if ( ( pressure[down] != invalidPressure && pressure[down] <= pressure[center] ) || pressure[down] < 10 )
 			{
 				here.flow += WF_DOWN;
 				drain.append( currentPos );

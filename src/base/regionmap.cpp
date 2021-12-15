@@ -477,8 +477,8 @@ bool RegionMap::checkSplit( const Position& pos )
 		if ( region1 == region2 )
 		{
 			//oposite
-			if ( ( region1 == between13 ) && ( region1 == region3 ) && ( region1 == between23 ) ||
-				 ( region1 == between14 ) && ( region1 == region4 ) && ( region1 == between24 ) )
+			if ( ( ( region1 == between13 ) && ( region1 == region3 ) && ( region1 == between23 ) ) ||
+				 ( ( region1 == between14 ) && ( region1 == region4 ) && ( region1 == between24 ) ) )
 			{
 				//still connected
 			}
@@ -582,8 +582,8 @@ bool RegionMap::checkSplit( const Position& pos )
 		if ( region3 == region4 )
 		{
 			//oposite
-			if ( ( region3 == between13 ) && ( region3 == region1 ) && ( region3 == between14 ) ||
-				 ( region3 == between23 ) && ( region3 == region2 ) && ( region3 == between24 ) )
+			if ( ( ( region3 == between13 ) && ( region3 == region1 ) && ( region3 == between14 ) ) ||
+				 ( ( region3 == between23 ) && ( region3 == region2 ) && ( region3 == between24 ) ) )
 			{
 				//still connected
 			}

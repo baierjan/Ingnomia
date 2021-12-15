@@ -35,6 +35,7 @@
 #include <QIcon>
 #include <QJsonDocument>
 #include <QPainter>
+#include <QRandomGenerator>
 
 Util::Util( Game* game ) :
 	g( game )
@@ -767,7 +768,7 @@ QString Util::getRandomString( int length )
 	QString randomString;
 	for ( int i = 0; i < length; ++i )
 	{
-		int index      = qrand() % possibleCharacters.length();
+		int index      = QRandomGenerator::global()->generate() % possibleCharacters.length();
 		QChar nextChar = possibleCharacters.at( index );
 		randomString.append( nextChar );
 	}

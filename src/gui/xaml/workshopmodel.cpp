@@ -370,7 +370,6 @@ WorkshopModel::WorkshopModel()
 
 void WorkshopModel::onUpdateInfo( const GuiWorkshopInfo& info )
 {
-	bool isSameWorkshop = ( m_workshopID == info.workshopID );
 	m_workshopID        = info.workshopID;
 	m_gui               = info.gui;
 	

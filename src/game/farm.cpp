@@ -237,8 +237,6 @@ void Farm::updateAutoFarmer()
 {
 	QString seedMaterialID = DB::select( "Material", "Plants", m_properties.plantType ).toString();
 
-	unsigned int countSeed = g->inv()->itemCount( m_properties.seedItem, seedMaterialID );
-
 	auto hl = DB::selectRows( "Plants_OnHarvest_HarvestedItem", m_properties.plantType );
 
 	QString item1ID;
@@ -254,12 +252,6 @@ void Farm::updateAutoFarmer()
 			break;
 		}
 	}
-	unsigned int countItem1 = 0;
-	unsigned int countItem2 = 0;
-	if ( !item1ID.isEmpty() )
-	{
-		countItem1 = g->inv()->itemCount( item1ID, material1ID );
-	}
 
 	for ( auto hi : hl )
 	{
@@ -269,10 +261,6 @@ void Farm::updateAutoFarmer()
 			material2ID = hi.value( "MaterialID" ).toString();
 			break;
 		}
-	}
-	if ( !item2ID.isEmpty() )
-	{
-		countItem2 = g->inv()->itemCount( item2ID, material2ID );
 	}
 	bool harvestOn  = false;
 	bool harvestOff = false;

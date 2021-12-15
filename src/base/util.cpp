@@ -289,7 +289,6 @@ QString Util::tile2String( Tile& tile, QString seperator )
 void Util::string2Tile( Tile& tile, QString data, QString seperator )
 {
 	QStringList dl = data.split( seperator );
-	int i          = 0;
 	if ( dl.size() == 10 )
 	{
 		tile.flags         = (TileFlag)dl[0].toUInt();
@@ -338,9 +337,6 @@ QMap<int, int> Util::mapSplit( QString data, QString seperator )
 
 QPair<int, int> Util::pixelOffset( const int x, const int y, const int z )
 {
-	int dimX = Global::dimX;
-	int dimY = Global::dimY;
-	int dimZ = Global::dimZ;
 	/*
 	int xOff = x * 32 - 16 * x + 16 * y;
 	int yOff = -( y * 32 - ( 8 * y + 8 * x ) );
@@ -977,15 +973,13 @@ QPixmap Util::createItemImage( const QString& itemID, const QStringList& mats )
 QPixmap Util::createItemImage2( const QString& itemID, const QStringList& mats )
 {
 	auto spriteID = DB::select( "SpriteID", "Items", itemID ).toString();
-	
+
 	QString season = GameState::seasonString;
 
 	QPixmap pm( 32, 32 );
 	pm.fill( QColor( 0, 0, 0, 0 ) );
 
 	QPainter painter( &pm );
-	int x0 = 0;
-	int y0 = 0;
 
 	Sprite* sprite = g->sf()->createSprite( spriteID, mats ) ;
 	if ( sprite )

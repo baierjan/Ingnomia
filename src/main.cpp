@@ -49,7 +49,6 @@ bool verbose     = false;
 void clearLog()
 {
 	QString folder   = GAME_DATA_FOLDER;
-	bool ok          = true;
 	QString fileName = "log.txt";
 	if ( QDir( folder ).exists() )
 	{
@@ -64,7 +63,6 @@ void clearLog()
 QPointer<QFile> openLog()
 {
 	QString folder   = GAME_DATA_FOLDER;
-	bool ok          = true;
 	QString fileName = "log.txt";
 	if ( QDir( folder ).exists() )
 	{

@@ -979,7 +979,6 @@ BT_RESULT Animal::actionFindRetreat( bool halt )
 	{
 		return BT_RESULT::IDLE;
 	}
-	int randPos = qMax( 2, rand() % ( Global::dimX - 2 ) );
 
 	Position pos( 0, 0, Global::dimZ - 1 );
 	int border = rand() % 4;
@@ -1070,7 +1069,6 @@ BT_RESULT Animal::actionFindRandomPastureField( bool halt )
 		Pasture* pasture = g->fm()->getPasture( m_pastureID );
 		if ( pasture )
 		{
-			int random = rand() % pasture->countTiles();
 			setCurrentTarget( pasture->randomFieldPos() );
 			return BT_RESULT::SUCCESS;
 		}

@@ -516,7 +516,6 @@ unsigned int Inventory::getClosestItem2( const Position& pos, bool allowInStockp
 bool Inventory::checkReachableItems( Position pos, bool allowInStockpile, int count, QString itemSID, QString materialSID )
 {
 	int thisCount  = 0;
-	int partitions = 0;
 
 	auto predicate = [&thisCount, this, allowInStockpile, pos, count]( unsigned int itemID ) -> bool {
 		auto item = getItem( itemID );

@@ -256,12 +256,6 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 		ordered.insert( pm.value( "Order" ).toString(), pm );
 	}
 
-	Uniform* uniform = nullptr;
-	if ( m_roleID )
-	{
-		uniform = g->mil()->uniform( m_roleID );
-	}
-
 	QVariantList def;
 	for ( auto vpm : ordered )
 	{
@@ -278,8 +272,6 @@ QVariantList Gnome::createSpriteDef( QString type, bool isBack )
 		{
 			hairConcealed = true;
 		}
-
-		unsigned int item = 0;
 
 		switch ( part )
 		{
@@ -830,8 +822,6 @@ bool Gnome::evalNeeds( bool seasonChanged, bool dayChanged, bool hourChanged, bo
 		//log( GameState::CurrentYearAndSeason" ).toString() );
 	}
 
-	bool needAction        = false;
-	unsigned char priority = 0;
 	QString action;
 	QString needKey;
 

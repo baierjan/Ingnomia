@@ -155,8 +155,6 @@ void Grove::onTick( quint64 tick )
 	{
 		if( !gf->job )
 		{
-			Tile& tile = g->w()->getTile( gf->pos );
-
 			if( !g->w()->plants().contains( gf->pos.toInt() ) )
 			{
 				if ( m_properties.plant && g->w()->noTree( gf->pos, 2, 2 ) && g->w()->isWalkable( gf->pos ) )

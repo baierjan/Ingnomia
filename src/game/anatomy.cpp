@@ -142,7 +142,6 @@ void Anatomy::damage( Equipment* eq, DamageType dt, AnatomyHeight da, AnatomySid
 
 	bool left   = (bool)( ds & AS_LEFT );
 	bool right  = (bool)( ds & AS_RIGHT );
-	bool center = (bool)( ds & AS_FRONT ) || (bool)( ds & AS_BACK );
 
 	int ra;
 	switch ( da )

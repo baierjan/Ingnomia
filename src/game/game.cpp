@@ -332,7 +332,6 @@ void Game::sendClock()
 	}
 	if ( GameState::seasonChanged )
 	{
-		auto gm = dynamic_cast<GameManager*>( parent() );
 		m_sf->forceUpdate();
 	}
 

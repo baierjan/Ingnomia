@@ -867,7 +867,6 @@ BT_RESULT Gnome::actionClaimItems( bool halt )
 
 	if ( m_job->type() == "CraftAtWorkshop" )
 	{
-		Workshop* ws = g->wsm()->workshopAt( m_job->pos() );
 		for ( auto component : m_job->requiredItems() )
 		{
 			QString itemSID         = component.itemSID;
@@ -880,7 +879,6 @@ BT_RESULT Gnome::actionClaimItems( bool halt )
 			}
 
 			int count        = component.count;
-			int countClaimed = 0;
 			// check if item exists in linked stockpile
 			if ( claimFromLinkedStockpile( itemSID, materialSID, count, requireSame, restriction ) )
 			{
@@ -1834,7 +1832,6 @@ BT_RESULT Gnome::actionButcherAnimal( bool halt )
 		m_currentAction = "butcher animal";
 
 		QString skillID      = m_job->requiredSkill();
-		float current        = Global::util->reverseFib( m_skills.value( skillID ).toUInt() );
 		m_totalDurationTicks = 50; //TODO get that number from DB
 		m_taskFinishTick     = GameState::tick + 50;
 	}
@@ -1922,7 +1919,6 @@ BT_RESULT Gnome::actionDyeAnimal( bool halt )
 		m_currentAction = "dye animal";
 
 		QString skillID      = m_job->requiredSkill();
-		float current        = Global::util->reverseFib( m_skills.value( skillID ).toUInt() );
 		m_totalDurationTicks = 50; //TODO get that number from DB
 		m_taskFinishTick     = GameState::tick + 50;
 	}
@@ -1981,7 +1977,6 @@ BT_RESULT Gnome::actionHarvestAnimal( bool halt )
 		m_currentAction = "harvest animal";
 
 		QString skillID      = m_job->requiredSkill();
-		float current        = Global::util->reverseFib( m_skills.value( skillID ).toUInt() );
 		m_totalDurationTicks = 100;
 		m_taskFinishTick     = GameState::tick + 100;
 	}
@@ -2049,7 +2044,6 @@ BT_RESULT Gnome::actionTameAnimal( bool halt )
 		m_currentAction = "tame animal";
 
 		QString skillID      = m_job->requiredSkill();
-		float current        = Global::util->reverseFib( m_skills.value( skillID ).toUInt() );
 		m_totalDurationTicks = 100;
 		m_taskFinishTick     = GameState::tick + 100;
 	}

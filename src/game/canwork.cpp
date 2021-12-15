@@ -862,7 +862,6 @@ bool CanWork::constructDugStairs()
 	QString materialSID = g->inv()->materialSID( itemID );
 	QString type        = DB::select( "Type", "Materials", materialSID ).toString();
 
-	bool result = false;
 	if ( type == "Soil" || type == "Sand" || type == "Clay" )
 	{
 		m_job->setItem( "SoilStairs" );

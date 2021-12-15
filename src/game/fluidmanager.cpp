@@ -96,8 +96,6 @@ void FluidManager::onTick( quint64 tickNumber, bool seasonChanged, bool dayChang
 		return;
 	m_lastTick = tickNumber;
 
-	bool needUpdate = false;
-
 	QQueue<Position> workQueue;
 
 	// for all outputs

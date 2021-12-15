@@ -375,7 +375,7 @@ void RegionMap::updatePositionClearWalkable( const Position& pos )
 			// check for possible split of regions
 			m_regionMap[index( pos )] = 0;
 
-			bool isSplit = checkSplit( pos );
+			checkSplit( pos );
 		}
 	}
 }

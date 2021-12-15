@@ -304,7 +304,6 @@ bool Selection::testTileForJobSelection( const Position& pos )
 {
 	// TODO cache plants and posID and make it faster :)
 	Tile* tile;
-	int dim = Global::dimX;
 
 	if ( m_tileCheckList.empty() )
 	{

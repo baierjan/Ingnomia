@@ -54,7 +54,6 @@ void CreatureManager::onTick( quint64 tickNumber, bool seasonChanged, bool dayCh
 	{
 		m_startIndex = 0;
 	}
-	int oldStartIndex = m_startIndex;
 	QList<unsigned int> toDestroy;
 	for ( int i = m_startIndex; i < m_creatures.size(); ++i )
 	{

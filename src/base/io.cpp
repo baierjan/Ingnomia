@@ -404,6 +404,8 @@ void IO::sanitize()
 			}
 			for ( const auto& claim : gnome->claimedItems() )
 			{
+				// Do not complain about unused variable
+				(void)claim;
 				// Special exemption in case this is legacy type reservation
 				legacyJobs.emplace( gnome->id() );
 			}
@@ -553,8 +555,6 @@ void IO::sanitize()
 		const auto categories = g->inv()->categories();
 		for ( auto it = GameState::watchedItemList.begin(); it != GameState::watchedItemList.end(); )
 		{
-			bool valid = true;
-
 			const auto groups    = g->inv()->groups( it->category );
 			const auto items     = g->inv()->items( it->category, it->group );
 			const auto materials = g->inv()->materials( it->category, it->group, it->item );
@@ -1104,8 +1104,6 @@ bool IO::saveItems( QString folder )
 	g->inv()->sanityCheck();
 
 	QByteArray out;
-
-	auto& items = g->inv()->allItems();
 
 	int i          = 1;
 	int startIndex = 0;

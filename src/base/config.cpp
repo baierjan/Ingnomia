@@ -33,7 +33,6 @@ Config::Config()
 
 	//check if Ingnomia folder in /Documents/My Games exist
 	QString folder = GAME_DATA_FOLDER;
-	bool ok        = true;
 	QJsonDocument jd;
 
 	if ( !IO::loadFile( folder + "settings/config.json", jd ) )

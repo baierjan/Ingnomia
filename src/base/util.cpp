@@ -667,6 +667,7 @@ Position Util::borderPos( bool& found )
 				break;
 		}
 	}
+	return pos;
 }
 
 QList<Position> Util::neighbors8( Position pos )
